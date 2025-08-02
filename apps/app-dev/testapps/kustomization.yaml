@@ -1,8 +1,0 @@
-resources:
-  - ./kustomize/
-  - ./argo/
-
-commonLabels:
-  project: testapps
-  owner: ZRC
-  ticket: CHM-11511

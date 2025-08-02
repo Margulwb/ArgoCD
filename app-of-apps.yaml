@@ -7,6 +7,10 @@ metadata:
     env: dev
     type: application
 spec:
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
   project: default
   destination:
     server: https://kubernetes.default.svc
@@ -15,7 +19,3 @@ spec:
     repoURL: https://github.com/Margulwb/ArgoCD
     path: apps
     targetRevision: main
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
