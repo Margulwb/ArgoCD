@@ -1,0 +1,3 @@
+- op: replace
+  path: /spec/data/0/remoteRef/key
+  value: secret/msteams-webhookurl-testapps-dev

@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: testapps-dev
+  namespace: argocd
+  labels:
+    env: dev
+    type: helm
+spec:
+  syncPolicy:
+    automated:
+      # prune: false
+      selfHeal: true
+  project: testapps-dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: testapps-dev
+  sources:
+  - repoURL: acrdeveoglink4.azurecr.io/helm
+    chart: application-java
+    targetRevision: 1.0.13
+    helm:
+      valueFiles:
+      - $values/dev/testapps/testapps.yaml
+  - repoURL: "https://dev.azure.com/link4/devops/_git/cloud_deployments"
+    targetRevision: master
+    ref: values

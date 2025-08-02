@@ -1,0 +1,20 @@
+resources:
+- ../../../../../base
+- application_insights_secret.yaml
+
+namespace: "testapps-dev"
+
+patches:
+- path: patch_amc_teamsnotification.yaml
+  target:
+    kind: ExternalSecret
+    name: msteams-webhook
+- path: ./patch_secretstore.yaml
+  target:
+    kind: SecretStore
+- path: patch_service_account.yaml
+  target:
+    kind: ServiceAccount
+- path: patch_role_binding.yaml
+  target:
+    kind: RoleBinding
