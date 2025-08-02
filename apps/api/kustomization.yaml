@@ -1,0 +1,5 @@
+resources:
+  - ./argo/
+
+commonLabels:
+  project: api
