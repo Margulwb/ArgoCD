@@ -3,10 +3,13 @@ kind: Application
 metadata:
   name: api
   namespace: argocd
+  labels:
+    env: dev
+    type: helm
 spec:
-  project: default
+  project: api
   source:
-    repoURL: 'https://github.com/your-org/your-repo.git'
+    repoURL: 'git@github.com:Margulwb/simple-python-api.git'
     targetRevision: HEAD
     path: overlays/production
   destination:

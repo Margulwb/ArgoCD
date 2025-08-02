@@ -11,7 +11,7 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  project: default
+  project: api
   destination:
     server: https://kubernetes.default.svc
     namespace: default
