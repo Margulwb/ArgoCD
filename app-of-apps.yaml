@@ -19,3 +19,4 @@ spec:
     repoURL: https://github.com/Margulwb/ArgoCD
     path: apps
     targetRevision: main
+    kustomize: {}
