@@ -1,0 +1,3 @@
+resources:
+  - api-app.yaml
+  - api-project.yaml
