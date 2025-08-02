@@ -4,3 +4,18 @@ resources:
 
 commonLabels:
   cluster: dev
+
+patches:
+- patch: "apiVersion: monitoring.coreos.com/v1alpha1\nkind: AlertmanagerConfig\nmetadata:\n
+    \ name: not-used\nspec:\n  muteTimeIntervals:\n  - name: workDay\n    timeIntervals:\n
+    \   - times:\n      - endTime: \"17:00\" \n        startTime: \"06:00\"\n      weekdays:
+    ['monday:friday']\n  route:\n    activeTimeIntervals:\n    - workDay"
+  target:
+    kind: AlertmanagerConfig
+    labelSelector: alertmanagerConfig=main
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+labels:
+- includeSelectors: true
+  pairs:
+    env: dev
